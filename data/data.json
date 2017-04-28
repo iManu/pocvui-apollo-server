@@ -1,0 +1,9 @@
+{
+  	"data": {
+	    "links": [
+	      	{ "id": 1, "title": "Lien 1", "href": "/" },
+			{ "id": 2, "title": "Lien 2", "href": "/coucou" },
+			{ "id": 3, "title": "Lien 3", "href": "/coucou" }   
+	    ]
+  	} 
+}

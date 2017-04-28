@@ -6,11 +6,14 @@ import { find, filter } from 'lodash';
 //   { id: 2, firstName: 'Sashko', lastName: 'Stubailo' },
 // ];
 
-const links = [
-  { id: 1, title: 'Lien 1', href: '/' },
-  { id: 2, title: 'Lien 2', href: '/coucou' },
-  { id: 3, title: 'Lien 3', href: '/coucou' },
-];
+// const links = [
+//   { id: 1, title: 'Lien 1', href: '/' },
+//   { id: 2, title: 'Lien 2', href: '/coucou' },
+//   { id: 3, title: 'Lien 3', href: '/coucou' },
+// ];
+
+const dataJson = require('./data');
+const links = dataJson.data.links;
 
 const resolveFunctions = {
   Query: {
