@@ -8,10 +8,16 @@ const schema = `
     id: Int!
     title: String
     href: String
+    router: String
+  }
+  type Page {
+    H1: String
+    H2: String
   }
   # the schema allows the following query:
   type Query {
     links: [Link]
+    pages: [Page]
   }
 `;
 

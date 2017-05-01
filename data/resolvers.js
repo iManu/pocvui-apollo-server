@@ -14,11 +14,15 @@ import { find, filter } from 'lodash';
 
 const dataJson = require('./data');
 const links = dataJson.data.links;
+const pages = dataJson.data.pages;
 
 const resolveFunctions = {
   Query: {
     links() {
       return links;
+    },
+    pages() {
+      return pages;
     },
     // author(_, { id }) {
     //   return find(authors, { id: id });
