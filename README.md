@@ -1,6 +1,6 @@
-# Voui POC server
+# POCvui server
 
-This server is used for data of voui POC repo
+This server is used for data of **pocvui** repo
 
 This is a really simple GraphQL server that uses [Apollo Server](https://github.com/apollostack/apollo-server) and [GraphQL Tools](https://github.com/apollostack/graphql-tools) to serve a simple schema.
 

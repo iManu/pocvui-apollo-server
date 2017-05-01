@@ -1,5 +1,5 @@
 {
-  "name": "voui-apollo-server",
+  "name": "pocvui-apollo-server",
   "version": "0.1.0",
   "description": "Minimal set of code to write a GraphQL server with Apollo graphql-tools",
   "scripts": {
