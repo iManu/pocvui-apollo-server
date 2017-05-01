@@ -1,15 +1,19 @@
 {
     "data": {
-        "pages": {
-            "Home": {
+        "pages": [
+            {
+                "id": 1,
+                "route": "Home",
                 "H1": "Accueil",
                 "H2": "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
             },
-            "Coucou": {
+            {
+                "id": 2,
+                "route": "Coucou",
                 "H1": "Autre page",
-                "H2": "Lorem ipsum consectetur adipisicing elit. Dolor sit amet"
+                "H2": "Lorem ipsum consectetur adipisicing elit. Dolor sit amet."
             }
-        },
+        ],
         "links": [
             { "id": 1, "title": "Accueil", "href": "/", "router" : "Home" },
             { "id": 2, "title": "Lien 2", "href": "/coucou", "router" : "Coucou" },

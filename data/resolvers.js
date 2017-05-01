@@ -13,6 +13,7 @@ import { find, filter } from 'lodash';
 // ];
 
 const dataJson = require('./data');
+
 const links = dataJson.data.links;
 const pages = dataJson.data.pages;
 
@@ -21,12 +22,9 @@ const resolveFunctions = {
     links() {
       return links;
     },
-    pages() {
-      return pages;
+    page(_, { route }) {
+      return find(pages, { route: route });
     },
-    // author(_, { id }) {
-    //   return find(authors, { id: id });
-    // },
   },
   // Mutation: {
   //   upvotePost(_, { postId }) {

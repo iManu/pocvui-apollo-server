@@ -17,7 +17,7 @@ const schema = `
   # the schema allows the following query:
   type Query {
     links: [Link]
-    pages: [Page]
+    page(route: String!): Page
   }
 `;
 
