@@ -14,10 +14,23 @@ const schema = `
     H1: String
     H2: String
   }
+  type Menu {
+    color: String
+  }
   # the schema allows the following query:
   type Query {
     links: [Link]
     page(route: String!): Page
+  }
+  # this schema allows the following mutation:
+  type Mutation {
+    changeMenu (
+      menuId: Int!
+    ): Menu
+  }
+
+  type Subscription {
+    menuChanged: Menu
   }
 `;
 

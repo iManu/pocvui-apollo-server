@@ -1,5 +1,15 @@
 {
     "data": {
+        "menus": [
+            {
+                "id": 1,
+                "color": "blue"
+            },
+            {
+                "id": 2,
+                "color": "red"
+            }
+        ], 
         "pages": [
             {
                 "id": 1,
