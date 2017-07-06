@@ -4,6 +4,7 @@ import resolvers from './resolvers';
 
 
 const schema = `
+
   type Link {
     id: Int!
     title: String
@@ -15,24 +16,39 @@ const schema = `
     H2: String
   }
   type Menu {
+    id: Int!
     color: String
   }
+  type Config {
+    menu: Int!
+  }
+  type User {
+    id: Int!
+    name: String
+    username: String
+    email: String
+    website: String
+  }
+  
   # the schema allows the following query:
   type Query {
+    menus: [Menu]
     links: [Link]
+    users: [User]
     page(route: String!): Page
   }
   # this schema allows the following mutation:
   type Mutation {
     changeMenu (
-      menuId: Int!
-    ): Menu
+      menu: Int!
+    ): Config
   }
 
   type Subscription {
-    menuChanged: Menu
+    menuChanged: Config
   }
 `;
+
 
 // const schema = `
 // type Author {

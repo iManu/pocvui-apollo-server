@@ -1,31 +1,70 @@
-import { find, filter } from 'lodash';
+import { find, filter, map } from 'lodash';
+import rp from 'request-promise';
 // import { pubsub } from './subscriptions';
 
-// const authors = [
-//   { id: 1, firstName: 'Tom', lastName: 'Coleman' },
-//   { id: 2, firstName: 'Sashko', lastName: 'Stubailo' },
-// ];
-
-// const links = [
-//   { id: 1, title: 'Lien 1', href: '/' },
-//   { id: 2, title: 'Lien 2', href: '/coucou' },
-//   { id: 3, title: 'Lien 3', href: '/coucou' },
-// ];
-
 const dataJson = require('./data');
-
 const links = dataJson.data.links;
 const pages = dataJson.data.pages;
+const menus = dataJson.data.menus;
+const config = dataJson.data.config;
+
+const fakeURL = 'http://jsonplaceholder.typicode.com/users';
+
+const rpOptions = {
+    uri: 'http://jsonplaceholder.typicode.com/users',
+    headers: {
+        'User-Agent': 'Request-Promise'
+    },
+    json: true // Automatically parses the JSON string in the response 
+};
+
+function fetchResponse() {
+  return rp(rpOptions).then((res) => {
+    const data = res;
+    return map(data, (item) => {
+      return {
+        id: item.id,
+        name: item.name,
+        username: item.username,
+        email: item.email,
+        website: item.website,
+      };
+    });
+  });
+}
+
 
 const resolveFunctions = {
   Query: {
     links() {
       return links;
     },
+    menus() {
+      return menus;
+    },
     page(_, { route }) {
       return find(pages, { route: route });
     },
+    async users() {
+      return fetchResponse();
+    },
   },
+  Mutation: {
+    changeMenu(_, { menuId }) {
+      const menu = find(config, { menu: menuId });
+      if (!menu) {
+        throw new Error(`Couldn't find config with menu id ${menu}`);
+      }
+      pubsub.publish('menuChanged', menu);
+      return menu;
+    },
+  },
+  Subscription: {
+    menuChanged(menuId) {
+      return menuId;
+    },
+  },
+  
   // Mutation: {
   //   upvotePost(_, { postId }) {
   //     const post = find(posts, { id: postId });
