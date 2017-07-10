@@ -1,7 +1,9 @@
-import { makeExecutableSchema } from 'graphql-tools';
+import { makeExecutableSchema, addErrorLoggingToSchema } from 'graphql-tools';
 
 import resolvers from './resolvers';
 
+// const logger = { log: (e) => console.error(e.stack) };
+// addErrorLoggingToSchema(mySchema, logger);
 
 const schema = `
 

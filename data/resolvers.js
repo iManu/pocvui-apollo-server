@@ -30,6 +30,11 @@ function fetchResponse() {
         website: item.website,
       };
     });
+  }).catch(function (err) {
+      console.log('errrrr', err);
+      return [{
+        error: err,
+      }];
   });
 }
 
